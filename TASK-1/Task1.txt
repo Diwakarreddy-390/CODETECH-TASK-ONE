@@ -1,0 +1,71 @@
+//logic gates
+
+module task1 (
+    input A, 
+    input B, 
+    output AND_out, 
+    output OR_out, 
+    output NOT_A, 
+    output NOT_B, 
+    output NAND_out, 
+    output NOR_out, 
+    output XOR_out, 
+    output XNOR_out
+);
+
+    assign AND_out = A & B;
+    assign OR_out = A | B;
+    assign NOT_A = ~A;
+    assign NOT_B = ~B;
+    assign NAND_out = ~(A & B);
+    assign NOR_out = ~(A | B);
+    assign XOR_out = A ^ B;
+    assign XNOR_out = ~(A ^ B);
+
+endmodule
+
+// half adder
+
+module task1 (
+    input A, 
+    input B, 
+    output sum, 
+    output carry
+);
+
+    assign sum = A ^ B;   
+    assign carry = A & B; 
+
+endmodule
+
+// full adder
+
+module task1 (
+    input A, 
+    input B, 
+    input Cin, 
+    output sum, 
+    output Cout
+);
+
+    assign sum = A ^ B ^ Cin;            
+    assign Cout = (A & B) | (Cin & (A ^ B)); 
+
+endmodule
+
+//multiplexer
+
+module task1 (
+    input A, 
+    input B, 
+    input C, 
+    input D, 
+    input [1:0] sel, 
+    output Y
+);
+
+    assign Y = (sel == 2'b00) ? A :
+               (sel == 2'b01) ? B :
+               (sel == 2'b10) ? C : D;
+
+endmodule
